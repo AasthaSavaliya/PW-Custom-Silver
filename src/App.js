@@ -6,15 +6,15 @@ import "./App.css";
 
 function App() {
   let initialFormData = {
-    goldPrice: 40,
-    goldWeight: "",
+    silverPrice: 9,
+    silverWeight: "",
     roundWeight: "",
     roundPrice: 275,
-    baguetteWeight: "",
+    moissaniteWeight: "",
     roundTotal: 0,
-    baguettePrice: 400,
-    goldTotal: 0,
-    baguetteTotal: 0,
+    moissanitePrice: 20,
+    silverTotal: 0,
+    moissaniteTotal: 0,
     miscTotal: 0,
     miscPrice: 0,
     miscWeight: "",
@@ -33,18 +33,18 @@ function App() {
             : e.target.value,
       };
 
-      updatedValues["goldTotal"] = isNaN(
-        parseFloat(updatedValues["goldWeight"])
+      updatedValues["silverTotal"] = isNaN(
+        parseFloat(updatedValues["silverWeight"])
       )
-        ? updatedValues["goldPrice"] * 0
-        : updatedValues["goldPrice"] * parseFloat(updatedValues["goldWeight"]);
+        ? updatedValues["silverPrice"] * 0
+        : updatedValues["silverPrice"] * parseFloat(updatedValues["silverWeight"]);
 
-      updatedValues["baguetteTotal"] = isNaN(
-        parseFloat(updatedValues["baguetteWeight"])
+      updatedValues["moissaniteTotal"] = isNaN(
+        parseFloat(updatedValues["moissaniteWeight"])
       )
-        ? updatedValues["baguettePrice"] * 0
-        : updatedValues["baguettePrice"] *
-          parseFloat(updatedValues["baguetteWeight"]);
+        ? updatedValues["moissanitePrice"] * 0
+        : updatedValues["moissanitePrice"] *
+          parseFloat(updatedValues["moissaniteWeight"]);
 
       updatedValues["miscTotal"] = isNaN(
         parseFloat(updatedValues["miscWeight"])
@@ -60,8 +60,8 @@ function App() {
           parseFloat(updatedValues["roundWeight"]);
 
       updatedValues["totalWithoutRound"] =
-        updatedValues["goldTotal"] +
-        updatedValues["baguetteTotal"] +
+        updatedValues["silverTotal"] +
+        updatedValues["moissaniteTotal"] +
         updatedValues["miscTotal"];
 
       if (e.target.value.length === 0) {
@@ -103,12 +103,12 @@ function App() {
 
   function resetForm() {
     const resetData = {
-      goldWeight: "",
+      silverWeight: "",
       roundWeight: "",
-      baguetteWeight: "",
+      moissaniteWeight: "",
       miscWeight: "",
-      goldTotal: 0,
-      baguetteTotal: 0,
+      silverTotal: 0,
+      moissaniteTotal: 0,
       miscTotal: 0,
       miscPrice: 0,
       roundTotal: 0,
@@ -143,18 +143,18 @@ function App() {
             Custom Jewelry Pricing
           </h3>
 
-          {/* GOLD CONTAINER */}
+          {/* SILVER CONTAINER */}
           <div className="gold-containers">
             <div className="d-flex align-items-center mb-3">
-              <h4 className="me-2 m-0">Gold</h4>
+              <h4 className="me-2 m-0">Silver</h4>
               <input
-                name="gold"
-                onChange={handleChange.bind(this, "goldWeight")}
+                name="silver"
+                onChange={handleChange.bind(this, "silverWeight")}
                 type="text"
                 className="form-control text-center"
                 style={{ borderBottom: "1px solid black", borderRadius: 0 }}
                 aria-label="Grams"
-                value={formData["goldWeight"]}
+                value={formData["silverWeight"]}
               />
               <span>Gr.</span>
             </div>
@@ -162,26 +162,26 @@ function App() {
             <div className="input-group mb-3 pe-5">
               <label>$&nbsp;</label>
               <input
-                name="goldPrice"
-                onChange={handleChange.bind(this, "goldPrice")}
+                name="silverPrice"
+                onChange={handleChange.bind(this, "silverPrice")}
                 type="text"
                 className="form-control text-center"
                 aria-label="Rate"
-                value={formData["goldPrice"]}
+                value={formData["silverPrice"]}
               />
 
               {/*<select*/}
-              {/*    onChange={handleChange.bind(this, "goldPrice")}*/}
-              {/*    name="goldPrices"*/}
+              {/*    onChange={handleChange.bind(this, "silverPrice")}*/}
+              {/*    name="silverPrices"*/}
               {/*  >*/}
               {/*    <option value={39}>39</option>*/}
               {/*    <option value={40}>40</option>*/}
               {/*  </select>*/}
               <label className={"me-3"}>=</label>
-              <label>{formData["goldTotal"].toFixed(2)}</label>
+              <label>{formData["silverTotal"].toFixed(2)}</label>
             </div>
           </div>
-          {/* GOLD CONTAINER END*/}
+          {/* SILVER CONTAINER END*/}
 
           <hr />
 
@@ -221,16 +221,16 @@ function App() {
 
           <hr />
 
-          {/* BAGUETTE DIAMOND CONTAINER*/}
+          {/* MOISSANITE CONTAINER*/}
 
           <div className="baguette-diam-container">
             <div className="d-flex align-items-center mb-3">
-              <h4 className="me-2 m-0">Baguette Diamonds</h4>
+              <h4 className="me-2 m-0">Moissanite</h4>
               <input
                 type="text"
-                onChange={handleChange.bind(this, "baguetteWeight")}
+                onChange={handleChange.bind(this, "moissaniteWeight")}
                 className="form-control text-center"
-                value={formData["baguetteWeight"]}
+                value={formData["moissaniteWeight"]}
                 aria-label="Carat weight"
                 style={{ borderBottom: "1px solid black", borderRadius: 0 }}
               />
@@ -240,14 +240,14 @@ function App() {
               <label>$</label>
               <input
                 type="text"
-                value={formData["baguettePrice"]}
+                value={formData["moissanitePrice"]}
                 className="form-control text-center"
                 aria-label="Rate"
-                onChange={handleChange.bind(this, "baguettePrice")}
+                onChange={handleChange.bind(this, "moissanitePrice")}
               />
 
               <label className={"me-3"}>=</label>
-              <label>{formData["baguetteTotal"].toFixed(2)}</label>
+              <label>{formData["moissaniteTotal"].toFixed(2)}</label>
             </div>
           </div>
           {/*BAGUETTE DIAMOND CONTAINER END*/}
