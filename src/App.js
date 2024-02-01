@@ -10,11 +10,14 @@ function App() {
     silverWeight: "",
     roundWeight: "",
     roundPrice: 275,
-    moissaniteWeight: "",
+    moissaniteRdWeight: "",
+    moissaniteEmWeight: "",
     roundTotal: 0,
-    moissanitePrice: 20,
+    moissaniteRdPrice: 20,
+    moissaniteEmPrice: 30,
     silverTotal: 0,
-    moissaniteTotal: 0,
+    moissaniteRdTotal: 0,
+    moissaniteEmTotal: 0,
     miscTotal: 0,
     miscPrice: 0,
     miscWeight: "",
@@ -39,12 +42,20 @@ function App() {
         ? updatedValues["silverPrice"] * 0
         : updatedValues["silverPrice"] * parseFloat(updatedValues["silverWeight"]);
 
-      updatedValues["moissaniteTotal"] = isNaN(
-        parseFloat(updatedValues["moissaniteWeight"])
+      updatedValues["moissaniteRdTotal"] = isNaN(
+        parseFloat(updatedValues["moissaniteRdWeight"])
       )
-        ? updatedValues["moissanitePrice"] * 0
-        : updatedValues["moissanitePrice"] *
-          parseFloat(updatedValues["moissaniteWeight"]);
+        ? updatedValues["moissaniteRdPrice"] * 0
+        : updatedValues["moissaniteRdPrice"] *
+          parseFloat(updatedValues["moissaniteRdWeight"]);
+
+      updatedValues["moissaniteEmTotal"] = isNaN(
+        parseFloat(updatedValues["moissaniteEmWeight"])
+      )
+        ? updatedValues["moissaniteEmPrice"] * 0
+        : updatedValues["moissaniteEmPrice"] *
+          parseFloat(updatedValues["moissaniteEmWeight"]);
+
 
       updatedValues["miscTotal"] = isNaN(
         parseFloat(updatedValues["miscWeight"])
@@ -61,7 +72,8 @@ function App() {
 
       updatedValues["totalWithoutRound"] =
         updatedValues["silverTotal"] +
-        updatedValues["moissaniteTotal"] +
+        updatedValues["moissaniteRdTotal"] +
+        updatedValues["moissaniteEmTotal"] +
         updatedValues["miscTotal"];
 
       if (e.target.value.length === 0) {
@@ -78,7 +90,7 @@ function App() {
       textToCopy += `\n$${value} / Ct = ${parseFloat(
         Math.ceil(
             ((formData["totalWithoutRound"] + formData["roundWeight"] * value) *
-            1.1)/10
+            1.12)/10
         )*10
       )}`;
     });
@@ -93,7 +105,7 @@ function App() {
       textToCopy += `\n${value.name} = $${parseFloat(
         Math.ceil(
             ((formData["totalWithoutRound"] + formData["roundWeight"] * `${value.value}`) *
-            1.1)/10
+            1.12)/10
         )*10
       )}`;
     });
@@ -105,10 +117,12 @@ function App() {
     const resetData = {
       silverWeight: "",
       roundWeight: "",
-      moissaniteWeight: "",
+      moissaniteRdWeight: "",
+      moissaniteEmWeight: "",
       miscWeight: "",
       silverTotal: 0,
-      moissaniteTotal: 0,
+      moissaniteRdTotal: 0,
+      moissaniteEmTotal: 0,
       miscTotal: 0,
       miscPrice: 0,
       roundTotal: 0,
@@ -221,16 +235,16 @@ function App() {
 
           <hr />
 
-          {/* MOISSANITE CONTAINER*/}
+          {/* MOISSANITE Rd CONTAINER*/}
 
           <div className="baguette-diam-container">
             <div className="d-flex align-items-center mb-3">
-              <h4 className="me-2 m-0">Moissanite</h4>
+              <h4 className="me-2 m-0">Moissanite Rd.</h4>
               <input
                 type="text"
-                onChange={handleChange.bind(this, "moissaniteWeight")}
+                onChange={handleChange.bind(this, "moissaniteRdWeight")}
                 className="form-control text-center"
-                value={formData["moissaniteWeight"]}
+                value={formData["moissaniteRdWeight"]}
                 aria-label="Carat weight"
                 style={{ borderBottom: "1px solid black", borderRadius: 0 }}
               />
@@ -240,16 +254,47 @@ function App() {
               <label>$</label>
               <input
                 type="text"
-                value={formData["moissanitePrice"]}
+                value={formData["moissaniteRdPrice"]}
                 className="form-control text-center"
                 aria-label="Rate"
-                onChange={handleChange.bind(this, "moissanitePrice")}
+                onChange={handleChange.bind(this, "moissaniteRdPrice")}
               />
 
               <label className={"me-3"}>=</label>
-              <label>{formData["moissaniteTotal"].toFixed(2)}</label>
+              <label>{formData["moissaniteRdTotal"].toFixed(2)}</label>
             </div>
           </div>
+
+          {/* MOISSANITE Em CONTAINER*/}
+
+          <div className="baguette-diam-container">
+            <div className="d-flex align-items-center mb-3">
+              <h4 className="me-2 m-0">Moissanite Em.</h4>
+              <input
+                type="text"
+                onChange={handleChange.bind(this, "moissaniteEmWeight")}
+                className="form-control text-center"
+                value={formData["moissaniteEmWeight"]}
+                aria-label="Carat weight"
+                style={{ borderBottom: "1px solid black", borderRadius: 0 }}
+              />
+              <span>Ctw.</span>
+            </div>
+            <div className="input-group mb-3 pe-5">
+              <label>$</label>
+              <input
+                type="text"
+                value={formData["moissaniteEmPrice"]}
+                className="form-control text-center"
+                aria-label="Rate"
+                onChange={handleChange.bind(this, "moissaniteEmPrice")}
+              />
+
+              <label className={"me-3"}>=</label>
+              <label>{formData["moissaniteEmTotal"].toFixed(2)}</label>
+            </div>
+          </div>
+
           {/*BAGUETTE DIAMOND CONTAINER END*/}
 
           <hr />
@@ -309,13 +354,13 @@ function App() {
                             {isNaN(parseFloat(formData["roundWeight"]))
                               ? Math.ceil(
                                   ((formData["totalWithoutRound"] + 0 * value) *
-                                    1.1) /
+                                    1.12) /
                                     10
                                 ) * 10
                               : Math.ceil(
                                   ((formData["totalWithoutRound"] +
                                     value * formData["roundWeight"]) *
-                                    1.1) /
+                                    1.12) /
                                     10
                                 ) * 10}
                           </span>
@@ -354,13 +399,13 @@ function App() {
                             {isNaN(parseFloat(formData["roundWeight"]))
                               ? Math.ceil(
                                   ((formData["totalWithoutRound"] + 0 * value.value) *
-                                    1.1) /
+                                    1.12) /
                                     10
                                 ) * 10
                               : Math.ceil(
                                   ((formData["totalWithoutRound"] +
                                     value.value * formData["roundWeight"]) *
-                                    1.1) /
+                                    1.12) /
                                     10
                                 ) * 10}
                           </span>
