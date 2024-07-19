@@ -24,6 +24,8 @@ function App() {
     totalWithoutRound: 0,
   };
 
+  // Git commit test
+
   const [formData, setFormData] = useState(initialFormData);
 
   function handleChange(fieldName, e) {
