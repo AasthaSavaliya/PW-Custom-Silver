@@ -166,7 +166,7 @@ function App() {
               <input
                 name="silver"
                 onChange={handleChange.bind(this, "silverWeight")}
-                type="text"
+                type="number"
                 className="form-control text-center"
                 style={{ borderBottom: "1px solid black", borderRadius: 0 }}
                 aria-label="Grams"
@@ -180,7 +180,7 @@ function App() {
               <input
                 name="silverPrice"
                 onChange={handleChange.bind(this, "silverPrice")}
-                type="text"
+                type="number"
                 className="form-control text-center"
                 aria-label="Rate"
                 value={formData["silverPrice"]}
@@ -206,7 +206,7 @@ function App() {
             <div className="d-flex align-items-center mb-3">
               <h4 className="me-2 m-0">Round Diamonds</h4>
               <input
-                type="text"
+                type="number"
                 onChange={handleChange.bind(this, "roundWeight")}
                 className="form-control text-center"
                 aria-label="Grams"
@@ -243,7 +243,7 @@ function App() {
             <div className="d-flex align-items-center mb-3">
               <h4 className="me-2 m-0">Moissanite Rd.</h4>
               <input
-                type="text"
+                type="number"
                 onChange={handleChange.bind(this, "moissaniteRdWeight")}
                 className="form-control text-center"
                 value={formData["moissaniteRdWeight"]}
@@ -255,7 +255,7 @@ function App() {
             <div className="input-group mb-3 pe-5">
               <label>$</label>
               <input
-                type="text"
+                type="number"
                 value={formData["moissaniteRdPrice"]}
                 className="form-control text-center"
                 aria-label="Rate"
@@ -273,7 +273,7 @@ function App() {
             <div className="d-flex align-items-center mb-3">
               <h4 className="me-2 m-0">Moissanite Em.</h4>
               <input
-                type="text"
+                type="number"
                 onChange={handleChange.bind(this, "moissaniteEmWeight")}
                 className="form-control text-center"
                 value={formData["moissaniteEmWeight"]}
@@ -285,7 +285,7 @@ function App() {
             <div className="input-group mb-3 pe-5">
               <label>$</label>
               <input
-                type="text"
+                type="number"
                 value={formData["moissaniteEmPrice"]}
                 className="form-control text-center"
                 aria-label="Rate"
@@ -306,7 +306,7 @@ function App() {
             <div className="d-flex align-items-center mb-3">
               <h4 className="me-2 m-0">Misc. Diamonds</h4>
               <input
-                type="text"
+                type="number"
                 onChange={handleChange.bind(this, "miscWeight")}
                 className="form-control text-center"
                 value={formData["miscWeight"]}
@@ -319,7 +319,7 @@ function App() {
             <div className="input-group mb-3 pe-5">
               <label>$</label>
               <input
-                type="text"
+                type="number"
                 onChange={handleChange.bind(this, "miscPrice")}
                 className="form-control text-center"
                 aria-label="Rate"
