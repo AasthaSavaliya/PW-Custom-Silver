@@ -92,7 +92,7 @@ function App() {
   //     textToCopy += `\n$${value} / Ct = ${parseFloat(
   //       Math.ceil(
   //           ((formData["totalWithoutRound"] + formData["roundWeight"] * value) *
-  //           1.12)/10
+  //           1.22)/10
   //       )*10
   //     )}`;
   //   });
@@ -107,7 +107,7 @@ function App() {
   //     textToCopy += `\n${value.name} = $${parseFloat(
   //       Math.ceil(
   //           ((formData["totalWithoutRound"] + formData["roundWeight"] * `${value.value}`) *
-  //           1.12)/10
+  //           1.22)/10
   //       )*10
   //     )}`;
   //   });
@@ -121,7 +121,7 @@ function App() {
   [275, 300, 350, 400, 450].map((value) => {
     textToCopy += `\n$${value} / Ct = ${parseFloat(
       Math.ceil(
-        ((formData["totalWithoutRound"] + formData["roundWeight"] * value) * 1.12) / 10
+        ((formData["totalWithoutRound"] + formData["roundWeight"] * value) * 1.22) / 10
       ) * 10
     )}`;
   });
@@ -372,13 +372,13 @@ function App() {
                             {isNaN(parseFloat(formData["roundWeight"]))
                               ? Math.ceil(
                                   ((formData["totalWithoutRound"] + 0 * value) *
-                                    1.12) /
+                                    1.22) /
                                     10
                                 ) * 10
                               : Math.ceil(
                                   ((formData["totalWithoutRound"] +
                                     value * formData["roundWeight"]) *
-                                    1.12) /
+                                    1.22) /
                                     10
                                 ) * 10}
                           </span>
@@ -389,7 +389,7 @@ function App() {
 
                   <div className="col-12 mt-2">
                     <p className="text-muted" style={{ fontSize: '16px', width: '100%' }}>
-                      NOTE: 26% Trump Tariff will be added to the final agreed prices.
+                      Including 10% Trump Tariff.
                     </p>
                   </div>
 
@@ -423,13 +423,13 @@ function App() {
           {/*                  {isNaN(parseFloat(formData["roundWeight"]))*/}
           {/*                    ? Math.ceil(*/}
           {/*                        ((formData["totalWithoutRound"] + 0 * value.value) **/}
-          {/*                          1.12) /*/}
+          {/*                          1.22) /*/}
           {/*                          10*/}
           {/*                      ) * 10*/}
           {/*                    : Math.ceil(*/}
           {/*                        ((formData["totalWithoutRound"] +*/}
           {/*                          value.value * formData["roundWeight"]) **/}
-          {/*                          1.12) /*/}
+          {/*                          1.22) /*/}
           {/*                          10*/}
           {/*                      ) * 10}*/}
           {/*                </span>*/}
