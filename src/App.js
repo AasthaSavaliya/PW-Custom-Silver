@@ -126,7 +126,7 @@ function App() {
     )}`;
   });
 
-  textToCopy += `\n\nNOTE: 26% Trump Tariff will be added to the final agreed prices.`;
+  textToCopy += `\n\nIncluding 10% Trump Tariff.`;
 
   navigator.clipboard.writeText(textToCopy);
 }
