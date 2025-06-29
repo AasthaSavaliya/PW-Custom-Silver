@@ -92,7 +92,7 @@ function App() {
   //     textToCopy += `\n$${value} / Ct = ${parseFloat(
   //       Math.ceil(
   //           ((formData["totalWithoutRound"] + formData["roundWeight"] * value) *
-  //           1.22)/10
+  //           1.27)/10
   //       )*10
   //     )}`;
   //   });
@@ -107,7 +107,7 @@ function App() {
   //     textToCopy += `\n${value.name} = $${parseFloat(
   //       Math.ceil(
   //           ((formData["totalWithoutRound"] + formData["roundWeight"] * `${value.value}`) *
-  //           1.22)/10
+  //           1.27)/10
   //       )*10
   //     )}`;
   //   });
@@ -121,7 +121,7 @@ function App() {
   [275, 300, 350, 400, 450].map((value) => {
     textToCopy += `\n$${value} / Ct = ${parseFloat(
       Math.ceil(
-        ((formData["totalWithoutRound"] + formData["roundWeight"] * value) * 1.22) / 10
+        ((formData["totalWithoutRound"] + formData["roundWeight"] * value) * 1.27) / 10
       ) * 10
     )}`;
   });
@@ -372,13 +372,13 @@ function App() {
                             {isNaN(parseFloat(formData["roundWeight"]))
                               ? Math.ceil(
                                   ((formData["totalWithoutRound"] + 0 * value) *
-                                    1.22) /
+                                    1.27) /
                                     10
                                 ) * 10
                               : Math.ceil(
                                   ((formData["totalWithoutRound"] +
                                     value * formData["roundWeight"]) *
-                                    1.22) /
+                                    1.27) /
                                     10
                                 ) * 10}
                           </span>
@@ -423,13 +423,13 @@ function App() {
           {/*                  {isNaN(parseFloat(formData["roundWeight"]))*/}
           {/*                    ? Math.ceil(*/}
           {/*                        ((formData["totalWithoutRound"] + 0 * value.value) **/}
-          {/*                          1.22) /*/}
+          {/*                          1.27) /*/}
           {/*                          10*/}
           {/*                      ) * 10*/}
           {/*                    : Math.ceil(*/}
           {/*                        ((formData["totalWithoutRound"] +*/}
           {/*                          value.value * formData["roundWeight"]) **/}
-          {/*                          1.22) /*/}
+          {/*                          1.27) /*/}
           {/*                          10*/}
           {/*                      ) * 10}*/}
           {/*                </span>*/}
