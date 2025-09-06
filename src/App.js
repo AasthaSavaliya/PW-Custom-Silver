@@ -126,7 +126,7 @@ function App() {
     )}`;
   });
 
-  textToCopy += `\n\nIncluding 15% Trump Tariff.`;
+  textToCopy += `\n\nIncluding 15% Tariff.`;
 
   navigator.clipboard.writeText(textToCopy);
 }
@@ -389,7 +389,7 @@ function App() {
 
                   <div className="col-12 mt-2">
                     <p className="text-muted" style={{ fontSize: '16px', width: '100%' }}>
-                      Including 15% Trump Tariff.
+                      Including 15% Tariff.
                     </p>
                   </div>
 
