@@ -14,6 +14,7 @@ function App() {
     moissaniteEmWeight: "",
     roundTotal: 0,
     moissaniteRdPrice: 10,
+    moissaniteEmPrice: 20,
     silverTotal: 0,
     moissaniteRdTotal: 0,
     moissaniteEmTotal: 0,
