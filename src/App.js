@@ -1,12 +1,11 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from "react";
 import logo from "./assets/Black-Font.png";
 import copy from "./assets/clippy.svg";
 import "./App.css";
 
-
 function App() {
   let initialFormData = {
-    silverPrice: 10,
+    silverPrice: 7,
     silverWeight: "",
     roundWeight: "",
     roundPrice: 275,
@@ -14,7 +13,7 @@ function App() {
     moissaniteEmWeight: "",
     roundTotal: 0,
     moissaniteRdPrice: 10,
-    moissaniteEmPrice: 20,
+    moissaniteEmPrice: 18,
     silverTotal: 0,
     moissaniteRdTotal: 0,
     moissaniteEmTotal: 0,
@@ -42,7 +41,8 @@ function App() {
         parseFloat(updatedValues["silverWeight"])
       )
         ? updatedValues["silverPrice"] * 0
-        : updatedValues["silverPrice"] * parseFloat(updatedValues["silverWeight"]);
+        : updatedValues["silverPrice"] *
+          parseFloat(updatedValues["silverWeight"]);
 
       updatedValues["moissaniteRdTotal"] = isNaN(
         parseFloat(updatedValues["moissaniteRdWeight"])
@@ -57,7 +57,6 @@ function App() {
         ? updatedValues["moissaniteEmPrice"] * 0
         : updatedValues["moissaniteEmPrice"] *
           parseFloat(updatedValues["moissaniteEmWeight"]);
-
 
       updatedValues["miscTotal"] = isNaN(
         parseFloat(updatedValues["miscWeight"])
@@ -116,20 +115,22 @@ function App() {
   // }
 
   function clipBoadHandler(e) {
-  e.preventDefault();
-  let textToCopy = "";
-  [275, 300, 350, 400, 450].map((value) => {
-    textToCopy += `\n$${value} / Ct = ${parseFloat(
-      Math.ceil(
-        ((formData["totalWithoutRound"] + formData["roundWeight"] * value) * 1.28) / 10
-      ) * 10
-    )}`;
-  });
+    e.preventDefault();
+    let textToCopy = "";
+    [275, 300, 350, 400, 450].map((value) => {
+      textToCopy += `\n$${value} / Ct = ${parseFloat(
+        Math.ceil(
+          ((formData["totalWithoutRound"] + formData["roundWeight"] * value) *
+            1.28) /
+            10
+        ) * 10
+      )}`;
+    });
 
-  textToCopy += `\n\nIncluding 15% Tariff.`;
+    textToCopy += `\n\nIncluding 15% Tariff.`;
 
-  navigator.clipboard.writeText(textToCopy);
-}
+    navigator.clipboard.writeText(textToCopy);
+  }
 
   function resetForm() {
     const resetData = {
@@ -154,8 +155,8 @@ function App() {
   }
 
   useEffect(() => {
-   document.title = "PW Custom"
-}, []);
+    document.title = "PW Custom";
+  }, []);
 
   return (
     <>
@@ -362,7 +363,10 @@ function App() {
                   <h3 onClick={resetForm}>Clear</h3>
                   {/*</button>*/}
                 </div>
-                <div className="p-2 row position-relative" style={{ border: "1px solid grey" }}>
+                <div
+                  className="p-2 row position-relative"
+                  style={{ border: "1px solid grey" }}
+                >
                   <div className="col">
                     {[275, 300, 350, 400, 450].map((value) => {
                       return (
@@ -388,7 +392,10 @@ function App() {
                   </div>
 
                   <div className="col-12 mt-2">
-                    <p className="text-muted" style={{ fontSize: '16px', width: '100%' }}>
+                    <p
+                      className="text-muted"
+                      style={{ fontSize: "16px", width: "100%" }}
+                    >
                       Including 15% Tariff.
                     </p>
                   </div>
@@ -403,7 +410,6 @@ function App() {
             </form>
           </div>
           {/*TOTAL CONTAINER END*/}
-
 
           {/*/!*TOTAL CONTAINER 2*!/*/}
           {/*<div className="total-container mt-4">*/}
@@ -448,7 +454,6 @@ function App() {
           {/*  </form>*/}
           {/*</div>*/}
           {/*/!*TOTAL CONTAINER 2 END*!/*/}
-
         </form>
       </section>
     </>
